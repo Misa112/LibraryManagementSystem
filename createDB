@@ -1,0 +1,77 @@
+Create Database LibraryDB
+
+GO
+use LibraryDB;
+
+CREATE TABLE [dbo].[Users] (
+    [UserId]   INT           NOT NULL,
+    [Name]     NVARCHAR (50) NOT NULL,
+    [Email]    NVARCHAR (50) NOT NULL,
+    [Password] NVARCHAR (50) NOT NULL,
+    [IsAdmin]  BIT           NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
+
+
+CREATE TABLE [dbo].[Messages]
+(
+	[MessageId] INT NOT NULL PRIMARY KEY, 
+    [Title] NVARCHAR(50) NOT NULL, 
+    [Description] NVARCHAR(MAX) NOT NULL, 
+    [UserId] INT NOT NULL, 
+    CONSTRAINT [FK_Messages_Users] FOREIGN KEY ([UserId]) REFERENCES [Users]([UserId]) 
+);
+
+
+CREATE TABLE [dbo].[Loans]
+(
+	[LoanId] INT NOT NULL PRIMARY KEY, 
+    [DateFrom] DATETIME NOT NULL, 
+    [DateTo] DATETIME NOT NULL, 
+    [Fee] FLOAT NOT NULL, 
+    [UserId] INT NOT NULL, 
+    CONSTRAINT [FK_Loans_Users] FOREIGN KEY ([UserId]) REFERENCES [Users]([UserId])
+);
+
+CREATE TABLE [dbo].[Books]
+(
+	[ISBN] NVARCHAR(50) NOT NULL PRIMARY KEY, 
+    [Title] NVARCHAR(50) NOT NULL, 
+    [Description] NVARCHAR(100) NOT NULL, 
+    [Genre] NVARCHAR(50) NULL, 
+    [Year] INT NULL, 
+    [IsAvailable] BIT NOT NULL, 
+    [NumberOfCopies] INT NOT NULL
+);
+
+
+
+
+
+CREATE TABLE [dbo].[Authors]
+(
+	[AuthorId] INT NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE [dbo].[Publications]
+(
+	[PublicationId] INT NOT NULL PRIMARY KEY, 
+    [ISBN] NVARCHAR(50) NOT NULL, 
+    [AuthorId] INT NOT NULL, 
+    CONSTRAINT [FK_Publications_Books] FOREIGN KEY ([ISBN]) REFERENCES [Books]([ISBN]), 
+    CONSTRAINT [FK_Publications_Authors] FOREIGN KEY ([AuthorId]) REFERENCES [Authors]([AuthorId])
+);
+
+
+
+CREATE TABLE [dbo].[Copies]
+(
+	[CopyId] INT NOT NULL PRIMARY KEY, 
+    [IsReturned] BIT NOT NULL, 
+    [LoanId] INT NOT NULL, 
+    [ISBN] NVARCHAR(50) NOT NULL, 
+    CONSTRAINT [FK_Copies_Loans] FOREIGN KEY ([LoanId]) REFERENCES [Loans]([LoanId]), 
+    CONSTRAINT [FK_Copies_Books] FOREIGN KEY ([ISBN]) REFERENCES [Books]([ISBN])
+);
