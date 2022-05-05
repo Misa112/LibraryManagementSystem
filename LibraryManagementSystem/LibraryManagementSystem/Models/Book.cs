@@ -31,6 +31,7 @@ namespace LibraryManagementSystem.Models
         public int? Year { get; set; }
         public bool IsAvailable { get; set; }
         public int NumberOfCopies { get; set; }
+        public string ImageName { get; set; }
 
         [InverseProperty(nameof(Copy.IsbnNavigation))]
         public virtual ICollection<Copy> Copies { get; set; }
