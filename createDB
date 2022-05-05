@@ -41,7 +41,8 @@ CREATE TABLE [dbo].[Books]
     [Genre] NVARCHAR(50) NULL, 
     [Year] INT NULL, 
     [IsAvailable] BIT NOT NULL, 
-    [NumberOfCopies] INT NOT NULL
+    [NumberOfCopies] INT NOT NULL,
+    [ImageName] NVARCHAR(500) NULL
 );
 
 
