@@ -1,0 +1,60 @@
+INSERT INTO Authors (AuthorId, Name)
+VALUES 
+(1,'Narayan Wagle')
+(2,'Madhab Prasad Ghimire')
+(3,'Laxmi Prasad Devkota')
+(4,'Amar Neupane'),
+(5,'BuddhiSagar'),
+(6,'Parijat'),
+(7,'Subin Bhattarai'),
+(8,'JK Rowling'),
+(9,'Paulo Coelho'),
+(10,'Roman af Dan Brown'),
+(11,'J.R.R. Tolkien'),
+(12,'Charles Dickens')
+
+INSERT INTO Books(ISBN,Title,Description,Genre,Year, IsAvailable, NumberOfCopies, ImageName)
+VALUES ('978-9-93-780210-9' , 'Palpasa Cafe ','The novel is partly a love story of Drishya and the first generation American Nepali, Palpasa, who has returned to the land of her parents after 9/11. It is often called an anti-war novel, and describes the effects of the civil war on the Nepali countryside that Drishya travels to.', 'Novel' , '2005' , 1 , 2, 'PalpasaCafe'),
+('9789993329756' , 'Gauri' , 'Gauri is an eponymous tragic epic written by Nepali "National Poet" Madhav Prasad Ghimire, in memory of his first wife,following her premature death. It is widely regarded as one of the poets finest works; it is also the most popular.Ghimire has named Gauri as one of his favourites, among his works.','Poetry' , '1959' ,1, 3 , 'Gauri'),
+('712775523', 'Muna Madan' , 'Muna Madan is a 1936 Nepali-language episodic love poem written by Laxmi Prasad Devkota. It is about Madan, newly married to Muna, who leaves for Lhasa in Tibet to make his fortune, despite protests from his wife.', 'Romance', 1936, 1, 4, 'MunaMadan'),
+('978-9937-8563-4-8', 'Seto Dharti', 'Seto Dharti is a Nepali novel written by Amar Neupane.It was published in 2012 by FinePrint Publication. It is the second novel of the author who previously penned a novel called Paniko Gham. It won the Madan Puraskar, the biggest literary award in Nepal.', 'Fiction', 2012 , 1 , 2 , 'SetoDharti'),
+('9789937827935', 'Karnali Blues', 'Karnali Blues is book written by Buddhi Sagar and published by FinePrint publication, Nepal in 2010. Karnali Blues is a story about a young boy who travels through different phases of his life with his parents. The storys main focus is on the protagonists father.The book is one of the best selling Nepalese novel', 'Fiction', 2010, 1, 2, 'KarnaliBlues'),
+('9993340995', 'Shirishko Phool', 'Shirishko Phool translated into English as Blue Mimosa, published in 1964, is a Nepali language novel by Parijat. It was the authors first and most successful novel. It was awarded the Madan Puraskar in 1965.', 'Novel', 1964, 0, 0, 'Shirishko Phool'),
+('9789937856386', 'Summer Love',' Summer Love is a Nepali novel by Subin Bhattarai published by Fine Print in 2012.Bhattarais second book and first novel, the plot concerns college students at the Central Department of Environmental Science (CDES) at Tribhuvan University falling in love.It was a best selling book in Nepal with in excess of 20,000 copies sold, and one of the best-selling books in the country for the year Saaya is the sequel Summer Love Novel. Summer Love is now available in English. Pratima Sharma translated the book from Nepali to English.', 'Romance', 2012, 1 , 2, 'SummerLove'),
+('0-7475-4624-X', 'Harry Potter and the Goblet of Fire', 'Harry Potter and the Goblet of Fire is a fantasy novel written by British author J. K. Rowling and the fourth novel in the Harry Potter series. It follows Harry Potter, a wizard in his fourth year at Hogwarts School of Witchcraft and Wizardry, and the mystery surrounding the entry of Harrys name into the Triwizard Tournament, in which he is forced to compete.', 'Fantasy', 2000, 1, 4, 'HarryPotter'),
+('0-06-250217-4' , 'Alchemist', 'The Alchemist is a novel by Brazilian author Paulo Coelho which was first published in 1988. Originally written in Portuguese, it became a widely translated international bestseller. An allegorical novel, The Alchemist follows a young Andalusian shepherd in his journey to the pyramids of Egypt, after having a recurring dream of finding a treasure there.', 'Fantasy', 1993, 1, 5, 'Alchemist'),
+('0-385-50420-9' , 'The Da Vinci Code', 'The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. It is Browns second novel to include the character Robert Langdon: the first was his 2000 novel Angels & Demons. The Da Vinci Code follows "symbologist" Robert Langdon and cryptologist Sophie Neveu after a murder in the Louvre Museum in Paris causes them to become involved in a battle between the Priory of Sion and Opus Dei over the possibility of Jesus Christ and Mary Magdalene having had a child together.', 'Mystery',2003, 1, 2, 'DaVinciCode'),
+('978-0007557271', 'The Adventures of Tom Bombadil','The Adventures of Tom Bombadil is a 1962 collection of poetry by J. R. R. Tolkien. The book contains 16 poems, two of which feature Tom Bombadil, a character encountered by Frodo Baggins in The Lord of the Rings. The rest of the poems are an assortment of bestiary verse and fairy tale rhyme. Three of the poems appear in The Lord of the Rings as well. The book is part of Tolkiens Middle-earth legendarium.', 'Poetry', 1962 , 0, 1, 'The Adventures of Tom Bombadil'),
+('9780141439600','A Tale of Two Cities','A Tale of Two Cities is an 1859 historical novel by Charles Dickens, set in London and Paris before and during the French Revolution. The novel tells the story of the French Doctor Manette, his 18-year-long imprisonment in the Bastille in Paris, and his release to live in London with his daughter Lucie whom he had never met. The story is set against the conditions that led up to the French Revolution and the Reign of Terror. In the Introduction to the Encyclopedia of Adventure Fiction, critic Don DAmmassa argues that it is an adventure novel because the protagonists are in constant danger of being imprisoned or killed.', 'Poetry', 1962 , 1, 3, 'A Tale of Two Cities')
+
+INSERT INTO Users(UserId, Name, Email, Password, IsAdmin)
+VALUES 
+(1,'Sabin', 'sabin@edu.zealand.dk', 'sabin@123', 0),
+(2,'Saugat', 'saugat@edu.zealand.dk', 'saugat@123', 1),
+(3,'Michaela', 'michaela@edu.zealand.dk', 'michaela@123', 0),
+(4,'Viktor', 'viktor@edu.zealand.dk', 'viktor@123', 0)
+
+
+INSERT INTO Publications(PublicationId, ISBN, AuthorId)
+VALUES 
+(1, '978-9-93-780210-9', 1),
+(2, '9789937856386', 7),
+(3, '9780141439600', 12)
+
+INSERT INTO Messages(MessageId, Title, Description, UserId)
+VALUES 
+(1, 'Welcome Message','Welcome to Kaiser Library.Thank you for being our member.', 1),
+(2, 'Expiration Notification', 'Your subscription is due at the end of this month. Please renew you membership soon.', 3),
+(3, 'Returning Book', 'Please return the book within today or else you will be fined NRs.200 per day.',4)
+
+INSERT INTO Loans(LoanId, DateFrom, DateTo,Fee, UserId)
+VALUES 
+(1, 1/5/2022, 1/6/2022, 0, 1),
+(2, 1/4/2022, 6/5/2022, 400, 3),
+(3, 1/5/2022, 1/7/2022, 0,4)
+
+INSERT INTO Copies(CopyId, IsReturned, LoanId,ISBN)
+VALUES 
+(1, 1, 1,'9789993329756'),
+(2, 1, 3, '0-06-250217-4'),
+(3, 0, 2, '9789937827935')
