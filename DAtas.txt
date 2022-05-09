@@ -1,8 +1,8 @@
 INSERT INTO Authors (AuthorId, Name)
 VALUES 
-(1,'Narayan Wagle')
-(2,'Madhab Prasad Ghimire')
-(3,'Laxmi Prasad Devkota')
+(1,'Narayan Wagle'),
+(2,'Madhab Prasad Ghimire'),
+(3,'Laxmi Prasad Devkota'),
 (4,'Amar Neupane'),
 (5,'BuddhiSagar'),
 (6,'Parijat'),
