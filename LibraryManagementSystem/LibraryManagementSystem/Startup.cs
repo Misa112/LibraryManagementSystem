@@ -1,6 +1,8 @@
 using LibraryManagementSystem.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using LibraryManagementSystem.Services.EFServices;
+using LibraryManagementSystem.Services.Interface;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +29,9 @@ namespace LibraryManagementSystem
         {
             services.AddRazorPages();
             services.AddDbContext<LibrarydbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("Library")));
+            services.AddTransient<IBookService, EFBookService>();
+            services.AddTransient<IAuthorService, EFAuthorService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
