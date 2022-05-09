@@ -7,6 +7,24 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+header nav.navbar {
+    background-color: lightblue;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    background-color: lightblue;
+}
+
+.navbar-nav > li > .dropdown-menu > a:hover {
+    color: #333;
+    background-color: red;
+}
+
+.navbar-nav > li:hover {
+    color: #333;
+    background-color: red;
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
