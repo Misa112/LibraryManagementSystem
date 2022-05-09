@@ -20,7 +20,7 @@ namespace LibraryManagementSystem.Pages.Genre
         }
         public void OnGet()
         {
-            Books = bookService.GetOneGenre();
+            //Books = bookService.GetOneGenre();
         }
     }
 }
