@@ -1,0 +1,34 @@
+﻿@page
+@model LibraryManagementSystem.Pages.Books.GetAllBooksModel
+@{
+}
+@{
+ ViewData["Title"] = "AllBooks";
+}
+
+<h1 style="color:deepskyblue"> List of All Books</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th> ISBN Number </th>
+            <th> Title </th>
+            <th>  Genre</th>
+            <th>ImageName</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @if (Model != null)
+        {
+            @foreach (var @item in Model.Books)
+            {
+                <tr>
+                    <td>  @item.Isbn </td>
+                    <td>  @item.Title </td>
+                    <td>  @item.Genre </td>
+                    <td>  @item.ImageName </td>
+                    
+                 </tr>
+            }
+        }
+</table>

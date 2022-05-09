@@ -1,0 +1,29 @@
+﻿@page
+@model LibraryManagementSystem.Pages.Genre.GetGenresModel
+@{
+}
+<h1 style="color:deepskyblue"> All Books</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th> S.N.</th>
+            
+            <th>  Genre</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        
+        @{int i = 1;}
+        @if (Model != null)
+        {
+            foreach (var @item in Model.DistinctGenre)
+            {
+                <tr>
+                    <td>@(i++)</td>
+                   
+                    <td>  @item.ge </td>
+                 </tr>
+            }
+        }
+</table>
