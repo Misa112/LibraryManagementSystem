@@ -10,7 +10,7 @@ namespace LibraryManagementSystem.Services.Interface
     {
         IEnumerable<Book> DisplayAllBooks();
 
-        IEnumerable<string> GetOneGenre();
+        List<string> GetDistinctGenre();
 
     }
 }

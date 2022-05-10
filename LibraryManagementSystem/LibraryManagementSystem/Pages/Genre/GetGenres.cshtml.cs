@@ -8,9 +8,9 @@ namespace LibraryManagementSystem.Pages.Genre
 {
     public class GetGenresModel : PageModel
     {
-        public IEnumerable<Book> Books { get; set; }
+        //public IEnumerable<Book> Books { get; set; }
 
-        public IEnumerable<string> Genres{ get;}
+        public List<string> Genres{ get; set; }
 
         private IBookService bookService;
 
@@ -20,7 +20,7 @@ namespace LibraryManagementSystem.Pages.Genre
         }
         public void OnGet()
         {
-            Books = bookService.GetOneGenre();
+            Genres = bookService.GetDistinctGenre();
         }
     }
 }
