@@ -21,14 +21,10 @@ namespace LibraryManagementSystem.Services.EFServices
             return librarydbContext.Books;
         }
 
-        public IEnumerable<string> GetOneGenre()
+        public List<string> GetDistinctGenre()
         {
-            throw new NotImplementedException();
+            return librarydbContext.Books.Select(book => book.Genre).Distinct().ToList();
         }
 
-        //public List GetDistinctGenre()
-        //{
-        //    return librarydbContext.Books.Where(m);
-        //}
     }
 }

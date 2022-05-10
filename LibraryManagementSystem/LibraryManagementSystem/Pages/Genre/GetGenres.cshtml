@@ -17,12 +17,12 @@
         @{int i = 1;}
         @if (Model != null)
         {
-            foreach (var @item in Model.DistinctGenre)
+            foreach (var @item in Model.Genres)
             {
                 <tr>
                     <td>@(i++)</td>
                    
-                    <td>  @item.ge </td>
+                    <td>  @item</td>
                  </tr>
             }
         }
