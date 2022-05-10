@@ -3,32 +3,44 @@
 @{
 }
 @{
- ViewData["Title"] = "AllBooks";
+    ViewData["Title"] = "AllBooks";
+}
+<div class="text-center">
+    <h1 class="display-2">All Books</h1>
+</div>
+
+@if (Model != null)
+{
+    @foreach (var @item in Model.Books)
+    {
+        <div style=" margin: 0 0 15px 0;">
+            <div style="float: left; margin: 0 15px 0 0;">
+                <img src="~/Image/book.jpeg" style=" height: 100px" />
+            </div>
+            <div>
+                <h5>@item.Title</h5>
+                @if (item.IsAvailable)
+                {
+                    <h6>Is Available: Yes </h6>
+                }
+                else
+                {
+                    <h6>Is Available: No </h6>
+                }
+
+            </div>
+            <div style="text-align: justify;">
+                @item.Description
+            </div>
+            
+            <div>
+                <a type="button" class="btn btn-primary">View all Copies</a>
+                <a type="button" class="btn btn-danger">Delete</a>
+            </div>
+            <hr />
+        </div>
+        
+        
+    }
 }
 
-<h1 style="color:deepskyblue"> List of All Books</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th> ISBN Number </th>
-            <th> Title </th>
-            <th>  Genre</th>
-            <th>ImageName</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        @if (Model != null)
-        {
-            @foreach (var @item in Model.Books)
-            {
-                <tr>
-                    <td>  @item.Isbn </td>
-                    <td>  @item.Title </td>
-                    <td>  @item.Genre </td>
-                    <td>  @item.ImageName </td>
-                    
-                 </tr>
-            }
-        }
-</table>
