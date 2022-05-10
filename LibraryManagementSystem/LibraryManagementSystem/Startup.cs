@@ -31,6 +31,7 @@ namespace LibraryManagementSystem
             services.AddDbContext<LibrarydbContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("Library")));
             services.AddTransient<IBookService, EFBookService>();
             services.AddTransient<IAuthorService, EFAuthorService>();
+            services.AddTransient<ICopyService, EFCopyService>();
 
         }
 
