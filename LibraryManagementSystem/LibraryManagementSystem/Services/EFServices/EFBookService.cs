@@ -43,6 +43,7 @@ namespace LibraryManagementSystem.Services.EFServices
             return librarydbContext.Books.Select(book => book.Genre).Distinct().ToList();
         }
 
+
         public bool CheckLoan(string isbn)
         {
 
@@ -59,6 +60,13 @@ namespace LibraryManagementSystem.Services.EFServices
             return false;
 
            
+        }
+
+
+
+        public List<Book> FilterBook(string criteria)
+        {
+            return librarydbContext.Books.Where(book => book.Title.Contains(criteria)).ToList();
         }
 
 

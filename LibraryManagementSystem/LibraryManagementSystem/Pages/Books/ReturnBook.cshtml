@@ -1,0 +1,30 @@
+﻿@page
+@model LibraryManagementSystem.Pages.Books.ReturnBookModel
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @if (Model != null)
+        {
+            foreach (var @item in Model.Users) 
+            {
+        <tr>
+            <td>@item.UserId</td>
+            <td>@item.Name</td>
+            <td>  <a type="button" class="btn btn-success" asp-page="/ListLoanBooks"> List Loan Book</a></td>
+        </tr>
+            }
+        }
+</table>
+
+
+

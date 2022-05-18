@@ -8,18 +8,25 @@ namespace LibraryManagementSystem.Pages.Books
 {
     public class GetAllBooksModel : PageModel
     {
-        
-            public IEnumerable<Book> Books { get; set; }
-            private IBookService bookService;
+        public IEnumerable<Book> Books { get; set; }
+        private IBookService bookService;
 
-            public GetAllBooksModel(IBookService bookService)
+        [BindProperty(SupportsGet = true)]
+        public string FilterCriteria { get; set; }
+
+        public GetAllBooksModel(IBookService bookService)
+        {
+            this.bookService = bookService;
+        }
+        public IActionResult OnGet()
+        {
+            Books = bookService.DisplayAllBooks();
+
+            if (!string.IsNullOrEmpty(FilterCriteria))
             {
-                this.bookService = bookService;
+                Books = bookService.FilterBook(FilterCriteria);
             }
-            public void OnGet()
-            {
-                Books = bookService.DisplayAllBooks();
-            }
-        
+            return Page();
+        }
     }
 }

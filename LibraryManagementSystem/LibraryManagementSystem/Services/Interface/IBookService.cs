@@ -11,6 +11,8 @@ namespace LibraryManagementSystem.Services.Interface
         IEnumerable<Book> DisplayAllBooks();
 
         List<string> GetDistinctGenre();
+        List<Book> FilterBook(string criteria);
+
 
         public void DeleteBook(string isbn);
 

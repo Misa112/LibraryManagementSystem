@@ -9,6 +9,13 @@
     <h1 class="display-2">All Books</h1>
 </div>
 
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 @if (Model != null)
 {
     @foreach (var @item in Model.Books)
