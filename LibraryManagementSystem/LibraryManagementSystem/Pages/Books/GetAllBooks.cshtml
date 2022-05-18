@@ -42,7 +42,7 @@
             
             <div>
                 <a type="button" class="btn btn-primary" asp-page="/Copies/GetCopies" asp-route-title="@item.Title" asp-route-id="@item.Isbn">View all Copies</a>
-                <a type="button" class="btn btn-danger">Delete</a>
+                <a type="button" class="btn btn-danger" asp-page="/Books/DeleteBook" asp-route-isbn="@item.Isbn ">Delete</a>
             </div>
             <hr />
         </div>
