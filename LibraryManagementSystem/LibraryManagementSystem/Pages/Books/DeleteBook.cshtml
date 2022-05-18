@@ -1,0 +1,32 @@
+﻿@page
+@model LibraryManagementSystem.Pages.Books.DeleteBookModel
+@{
+}
+<div>
+    @if (@Model.IsLoaned)
+    {
+        <h1>You can not delete @Model.Books.Title because it has been loaned.</h1>
+
+         <a class="btn btn-dark" asp-page="/Books/GetAllBooks">Return</a>
+    }
+    else
+    {
+        <h1>Do you want to Delete @Model.Books.Title ?       </h1>
+
+    <form method="post">
+        <div class="form-group">
+            <input asp-for="@Model.Books.Isbn"  class="form-control" hidden="hidden"/>
+        </div>
+      
+             <div class="form-group">
+            <input type="submit" value="Delete" class="btn btn-danger"/>
+            <a class="btn btn-dark" asp-page="/Books/GetAllBooks">Cancel</a>
+        </div>
+        
+       
+    </form>
+   
+    }
+    
+    
+</div>

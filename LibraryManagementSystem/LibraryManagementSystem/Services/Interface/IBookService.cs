@@ -12,5 +12,11 @@ namespace LibraryManagementSystem.Services.Interface
 
         List<string> GetDistinctGenre();
 
+        public void DeleteBook(string isbn);
+
+        Book GetBook(string  isbn);
+
+        public bool CheckLoan(string isbn);
+
     }
 }
