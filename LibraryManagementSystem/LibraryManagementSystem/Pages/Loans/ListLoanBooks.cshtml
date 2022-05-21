@@ -1,0 +1,32 @@
+﻿@page
+@model LibraryManagementSystem.Pages.Loans.ListLoanBooksModel
+@{
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ISBN Number</th>
+            <th>Copy ID</th>
+            <th>Place No.</th>
+            <th>Date From</th>
+            <th>Date To</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var @item in Model.LoanBooks)
+        {
+            <tr>
+                <td>@item.ISBN</td>
+                <td>@item.CopyId</td>
+                <td>@item.BookName</td>
+                <td>@item.IssueDate</td>
+                <td>@item.ReturnDate</td>
+                <td>
+                    <a type="button" class="btn btn-primary" asp-page="../Copies/ReturnCopy" asp-route-copyID="@item.CopyId" asp-route-ISBN="@item.ISBN" asp-route-dateTo="@item.ReturnDate" asp-route-Id="@Model.ID">Return Book</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

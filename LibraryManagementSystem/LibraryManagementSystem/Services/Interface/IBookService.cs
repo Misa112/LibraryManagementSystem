@@ -20,5 +20,9 @@ namespace LibraryManagementSystem.Services.Interface
 
         public bool CheckLoan(string isbn);
 
+        public Book GetBookByISBN(string ISBN);
+
+        public void ReturnBook(string ISBN);
+
     }
 }

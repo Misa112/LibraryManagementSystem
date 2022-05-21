@@ -39,7 +39,7 @@ namespace LibraryManagementSystem.Models
             modelBuilder.Entity<Book>(entity =>
             {
                 entity.HasKey(e => e.Isbn)
-                    .HasName("PK__Books__447D36EB10B588BD");
+                    .HasName("PK__Books__447D36EB2D74BA6F");
             });
 
             modelBuilder.Entity<Copy>(entity =>
@@ -55,7 +55,6 @@ namespace LibraryManagementSystem.Models
                 entity.HasOne(d => d.Loan)
                     .WithMany(p => p.Copies)
                     .HasForeignKey(d => d.LoanId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Copies_Loans");
             });
 

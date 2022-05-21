@@ -19,5 +19,17 @@ namespace LibraryManagementSystem.Services.EFServices
         {
             return librarydbContext.Copies.Where(w => w.Isbn == id && w.IsReturned == true).Select(s => s);
         }
+
+        public Copy DisplayACopies(int id)
+        {
+            return librarydbContext.Copies.Where(w => w.CopyId == id).FirstOrDefault();
+        }
+
+        public void ReturnCopy(int copyID) {
+            var copy = librarydbContext.Copies.First(a => a.CopyId == copyID);
+            copy.IsReturned = true;
+            copy.LoanId = null;
+            librarydbContext.SaveChanges();
+        }
     }
 }
