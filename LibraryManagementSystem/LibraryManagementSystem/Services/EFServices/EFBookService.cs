@@ -62,13 +62,29 @@ namespace LibraryManagementSystem.Services.EFServices
            
         }
 
-
+        public Book GetBookByISBN(string ISBN)
+        {
+            return librarydbContext.Books.Where(w => w.Isbn == ISBN).FirstOrDefault();
+        }
 
         public List<Book> FilterBook(string criteria)
         {
             return librarydbContext.Books.Where(book => book.Title.Contains(criteria)).ToList();
         }
 
-
+        public void ReturnBook(string ISBN) {
+            var countCopies = librarydbContext.Copies.Where(w => w.Isbn == ISBN && w.IsReturned == true).Count();
+            var book = librarydbContext.Books.Where(w => w.Isbn == ISBN).FirstOrDefault();
+            book.NumberOfCopies = countCopies;
+            if(countCopies > 0)
+            {
+                book.IsAvailable = true;
+            }
+            else
+            {
+                book.IsAvailable = false;
+            }
+            librarydbContext.SaveChanges();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace LibraryManagementSystem.Models
         [Key]
         public int CopyId { get; set; }
         public bool IsReturned { get; set; }
-        public int LoanId { get; set; }
+        public int? LoanId { get; set; }
         [Required]
         [Column("ISBN")]
         [StringLength(50)]
