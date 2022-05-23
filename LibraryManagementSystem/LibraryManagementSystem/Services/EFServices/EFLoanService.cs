@@ -24,6 +24,14 @@ namespace LibraryManagementSystem.Services.EFServices
             connectionString = configuration.GetConnectionString("Library");
         }
 
+        public int AddLoan(DateTime dateFrom, DateTime dateTo, int userID)
+        {
+            var loan = new Loan { DateFrom = dateFrom, DateTo = dateTo, Fee = 0, UserId = userID };
+            librarydbContext.Add<Loan>(loan);
+            librarydbContext.SaveChanges();
+            return loan.LoanId;
+        }
+
         public IEnumerable<LoanBook> LoanBooks(int id)
         {
 

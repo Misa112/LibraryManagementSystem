@@ -23,7 +23,7 @@
             <td>@item.CopyId</td>
 
             <td>  @Model.Title</td>
-            <td>  <a type="button" class="btn btn-success"> Loan Book</a></td>
+            <td>  <a type="button" class="btn btn-success" asp-page="/Loans/LoanBook" asp-route-copyid="@item.CopyId"> Loan Book</a></td>
         </tr>
             }
         }
