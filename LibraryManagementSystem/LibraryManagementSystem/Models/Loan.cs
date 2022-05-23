@@ -16,6 +16,7 @@ namespace LibraryManagementSystem.Models
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int LoanId { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime DateFrom { get; set; }

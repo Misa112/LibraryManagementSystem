@@ -24,5 +24,7 @@ namespace LibraryManagementSystem.Services.Interface
 
         public void ReturnBook(string ISBN);
 
+        public void LoanBook(string ISBN);
+
     }
 }

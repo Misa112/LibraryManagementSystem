@@ -60,7 +60,7 @@ namespace LibraryManagementSystem.Models
 
             modelBuilder.Entity<Loan>(entity =>
             {
-                entity.Property(e => e.LoanId).ValueGeneratedNever();
+                entity.Property(e => e.LoanId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Loans)
