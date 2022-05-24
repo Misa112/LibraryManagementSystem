@@ -11,6 +11,7 @@ namespace LibraryManagementSystem.Models
     public partial class Copy
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CopyId { get; set; }
         public bool IsReturned { get; set; }
         public int? LoanId { get; set; }

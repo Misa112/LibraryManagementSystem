@@ -11,6 +11,7 @@ namespace LibraryManagementSystem.Models
     public partial class Publication
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PublicationId { get; set; }
         [Required]
         [Column("ISBN")]

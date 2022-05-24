@@ -39,5 +39,12 @@ namespace LibraryManagementSystem.Services.EFServices
             copy.LoanId = loanID;
             librarydbContext.SaveChanges();
         }
+
+        public void AddCopy (string Isbn)
+        {
+            var copy = new Copy { IsReturned = true, LoanId = null, Isbn = Isbn };
+            librarydbContext.Add<Copy>(copy);
+            librarydbContext.SaveChanges();
+        }
     }
 }

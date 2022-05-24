@@ -34,7 +34,7 @@ namespace LibraryManagementSystem
             services.AddTransient<ICopyService, EFCopyService>();
             services.AddTransient<IUserService, EFUserService>();
             services.AddTransient<ILoanService, EFLoanService>();
-
+            services.AddTransient<IPublicationService, EFPublicationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

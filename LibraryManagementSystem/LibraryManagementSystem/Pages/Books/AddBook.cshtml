@@ -1,0 +1,55 @@
+﻿@page
+@model LibraryManagementSystem.Pages.Books.AddBookModel
+@{
+}
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="@Model.Book.Isbn">ISBN</label>
+        <input type="text" class="form-control" asp-for="@Model.Book.Isbn" required>
+        <span asp-validation-for="@Model.Book.Isbn" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Book.Title">Title</label>
+        <input type="text" class="form-control" asp-for="@Model.Book.Title" required>
+        <span asp-validation-for="@Model.Book.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Book.Description">Description</label>
+        <textarea class="form-control" rows="3" asp-for="@Model.Book.Description"></textarea>
+        <span asp-validation-for="@Model.Book.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Book.Genre">Genre</label>
+        <input type="text" class="form-control" asp-for="@Model.Book.Genre" required>
+        <span asp-validation-for="@Model.Book.Genre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Book.Year">Year</label>
+        <input type="text" class="form-control" asp-for="@Model.Book.Year">
+        <span asp-validation-for="@Model.Book.Year" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Book.NumberOfCopies">Number of Copies</label>
+        <input type="number" class="form-control" asp-for="@Model.Book.NumberOfCopies" required>
+        <span asp-validation-for="@Model.Book.NumberOfCopies" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Authors">Author</label>
+        <select class="form-control selectpicker" asp-for="@Model.Authors" multiple data-live-search="true" searchable="Search here.." required>
+            @foreach (var item in Model.Author)
+            {
+                <option data-tokens="@item.Name" value="@item.AuthorId"> @item.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Upload">Image</label>
+        <input type="file" class="form-control" asp-for="@Model.Upload" required>
+        <span asp-validation-for="@Model.Book.ImageName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add Book" class="btn btn-success" />
+        <a class="btn btn-danger" asp-page="/Book/GetAllBooks">Cancel</a>
+    </div>
+</form>
+

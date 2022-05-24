@@ -21,7 +21,7 @@ namespace LibraryManagementSystem.Models
         [StringLength(50)]
         public string Isbn { get; set; }
         [Required]
-        [StringLength(50)]
+        [StringLength(50, MinimumLength = 3)]
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }

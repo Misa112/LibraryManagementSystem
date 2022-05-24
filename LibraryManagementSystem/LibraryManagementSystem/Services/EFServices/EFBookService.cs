@@ -102,5 +102,12 @@ namespace LibraryManagementSystem.Services.EFServices
             }
             librarydbContext.SaveChanges();
         }
+
+        public void AddBook(string isbn, string title, string Description, string Genre, int? year, int numberOfCopies, string imageName)
+        {
+            var book = new Book { Isbn = isbn, Title = title, Description = Description, Genre = Genre, Year = year, IsAvailable = true, NumberOfCopies = numberOfCopies, ImageName = imageName };
+            librarydbContext.Add<Book>(book);
+            librarydbContext.SaveChanges();
+        }
     }
 }

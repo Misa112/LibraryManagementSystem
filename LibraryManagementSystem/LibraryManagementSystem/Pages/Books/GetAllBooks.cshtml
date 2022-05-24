@@ -9,12 +9,28 @@
     <h1 class="display-2">All Books</h1>
 </div>
 
-<form>
-    <p>
-        Search: <input type="text" asp-for="FilterCriteria" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+<div>
+    <a type="button" class="btn btn-primary" asp-page="AddBook" style="float:right">Add Book</a>
+    <form>
+        <p>
+            Search: <input type="text" asp-for="FilterCriteria" />
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+</div>
+
+@if (ViewData["error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewData["error"]
+    </div>
+}
+@if (ViewData["Success"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @ViewData["Success"]
+    </div>
+}
 
 @if (Model != null)
 {
@@ -22,7 +38,7 @@
     {
         <div style=" margin: 0 0 15px 0;">
             <div style="float: left; margin: 0 15px 0 0;">
-                <img src="~/Image/book.jpeg" style=" height: 100px" />
+                <img src="~/Image/@item.ImageName" style=" height: 100px" />
             </div>
             <div>
                 <h5>@item.Title</h5>
@@ -39,15 +55,15 @@
             <div style="text-align: justify;">
                 @item.Description
             </div>
-            
+
             <div>
                 <a type="button" class="btn btn-primary" asp-page="/Copies/GetCopies" asp-route-title="@item.Title" asp-route-id="@item.Isbn">View all Copies</a>
                 <a type="button" class="btn btn-danger" asp-page="/Books/DeleteBook" asp-route-isbn="@item.Isbn ">Delete</a>
             </div>
             <hr />
         </div>
-        
-        
+
+
     }
 }
 
