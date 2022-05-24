@@ -44,7 +44,7 @@ namespace LibraryManagementSystem.Models
 
             modelBuilder.Entity<Copy>(entity =>
             {
-                entity.Property(e => e.CopyId).ValueGeneratedNever();
+                entity.Property(e => e.CopyId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.IsbnNavigation)
                     .WithMany(p => p.Copies)
@@ -82,7 +82,7 @@ namespace LibraryManagementSystem.Models
 
             modelBuilder.Entity<Publication>(entity =>
             {
-                entity.Property(e => e.PublicationId).ValueGeneratedNever();
+                entity.Property(e => e.PublicationId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.Author)
                     .WithMany(p => p.Publications)

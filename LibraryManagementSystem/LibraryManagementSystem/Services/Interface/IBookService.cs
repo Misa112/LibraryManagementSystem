@@ -26,5 +26,7 @@ namespace LibraryManagementSystem.Services.Interface
 
         public void LoanBook(string ISBN);
 
+        public void AddBook(string isbn, string title, string Description, string Genre, int? year, int numberOfCopies, string imageName);
+
     }
 }

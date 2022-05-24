@@ -10,5 +10,6 @@ namespace LibraryManagementSystem.Services.Interface
     public interface IAuthorService
     {
         IEnumerable<Author> GetAuthors();  
+
     }
 }

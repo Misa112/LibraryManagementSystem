@@ -15,5 +15,7 @@ namespace LibraryManagementSystem.Services.Interface
         public void ReturnCopy(int copyID);
 
         public void LoanCopy(int copyID, int loanID);
+
+        public void AddCopy(string ISBN);
     }
 }
