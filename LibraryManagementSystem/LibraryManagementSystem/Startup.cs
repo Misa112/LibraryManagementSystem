@@ -33,6 +33,7 @@ namespace LibraryManagementSystem
             services.AddTransient<IAuthorService, EFAuthorService>();
             services.AddTransient<ICopyService, EFCopyService>();
             services.AddTransient<IUserService, EFUserService>();
+            services.AddTransient<ILoanService, EFLoanService>();
 
         }
 

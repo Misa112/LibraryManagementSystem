@@ -14,5 +14,17 @@ namespace LibraryManagementSystem.Services.Interface
         List<Book> FilterBook(string criteria);
 
 
+        public void DeleteBook(string isbn);
+
+        Book GetBook(string  isbn);
+
+        public bool CheckLoan(string isbn);
+
+        public Book GetBookByISBN(string ISBN);
+
+        public void ReturnBook(string ISBN);
+
+        public void LoanBook(string ISBN);
+
     }
 }

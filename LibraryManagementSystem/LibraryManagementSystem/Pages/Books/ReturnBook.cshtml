@@ -20,7 +20,7 @@
         <tr>
             <td>@item.UserId</td>
             <td>@item.Name</td>
-            <td>  <a type="button" class="btn btn-success" asp-page="/ListLoanBooks"> List Loan Book</a></td>
+            <td>  <a type="button" class="btn btn-success" asp-route-id="@item.UserId" asp-page="../Loans/ListLoanBooks"> List Loan Book</a></td>
         </tr>
             }
         }

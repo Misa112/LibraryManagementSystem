@@ -1,0 +1,43 @@
+﻿@page
+@model LibraryManagementSystem.Pages.Copies.ReturnCopyModel
+@{
+}
+
+
+<div>
+    <h1>Do you want to Return Copy of  @Model.Book.Title ?</h1>
+    <h6></h6>
+    <form method="post">
+        <div class="form-group">
+            <input asp-for="@Model.Copy.CopyId" class="form-control" hidden="hidden" />
+            <input asp-for="@Model.Book.Isbn" class="form-control" hidden="hidden" />
+            <input asp-for="@Model.ID" class="form-control" hidden="hidden"/>
+            <p>Return date for the book is :@Model.ReturnDate </p>
+            @{
+                var returnDate = Model.ReturnDate;
+                var todayDate = DateTime.Now;
+                var diffOfDates = todayDate.Subtract(returnDate);
+            }
+            @if (diffOfDates.Days > 0)
+            {
+                <p>Book is returned late by @diffOfDates.Days Days. </p>
+                var fine = @diffOfDates.Days * 5;
+                <label>Fine for the book</label>
+                <input value="@fine" asp-for="@Model.LoanFee" class="form-control" readonly />
+            }
+            else
+            {
+                <p>Book is returned on time. </p>
+                <label>Fine for the book</label>
+                <input value="0" asp-for="@Model.LoanFee" class="form-control" readonly />
+            }
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Return Book" class="btn btn-danger" />
+            <a class="btn btn-dark" asp-page="/Loans/ListLoanBooks" asp-route-id="@Model.ID">Cancel</a>
+        </div>
+    </form>
+
+
+</div>

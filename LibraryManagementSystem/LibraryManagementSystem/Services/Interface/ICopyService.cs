@@ -9,5 +9,11 @@ namespace LibraryManagementSystem.Services.Interface
     public interface ICopyService
     {
         IEnumerable<Copy> DisplayCopies(string id);
+
+        public Copy DisplayACopies(int id);
+
+        public void ReturnCopy(int copyID);
+
+        public void LoanCopy(int copyID, int loanID);
     }
 }

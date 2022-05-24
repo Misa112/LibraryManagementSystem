@@ -1,0 +1,43 @@
+﻿@page
+@model LibraryManagementSystem.Pages.Loans.LoanBookModel
+@{
+    var dateFromNormal = DateTime.Now;
+    var dateToNormal = dateFromNormal.AddDays(15);
+    var dateFrom = dateFromNormal.ToString("yyyy/MM/dd hh:mm tt");
+    var dateTo = dateToNormal.ToString("yyyy/MM/dd hh:mm tt");
+}
+<form method="post">
+    <div class="form-group">
+            <label asp-for="@Model.Book.Title">Loan book</label>
+            <input type="text" class="form-control" asp-for="@Model.Book.Title" value="@Model.Book.Title" readonly>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Book.Title">Loan book</label>
+            <input type="text" class="form-control" asp-for="@Model.Book.Title" value="@Model.Book.Title" readonly>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" asp-for="@Model.Copy.CopyId" value="@Model.Copy.CopyId" hidden="hidden">
+            <input type="text" class="form-control" asp-for="@Model.Copy.Isbn" value="@Model.Copy.Isbn" hidden="hidden">
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Loan.DateFrom">Date From</label>
+            <input type="datetime" class="form-control" asp-for="@Model.Loan.DateFrom" value="@dateFrom" readonly>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Loan.DateTo">Date To</label>
+            <input type="datetime" class="form-control" asp-for="@Model.Loan.DateTo" value="@dateTo" readonly>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Loan.UserId">Member</label>
+            <select class="form-control selectpicker" data-live-search="true" searchable="Search here.." asp-for="@Model.Loan.UserId">
+                @foreach (var item in Model.User)
+                {
+                    <option data-tokens="@item.Name" value="@item.UserId">@item.UserId : @item.Name</option>
+                }
+            </select>
+        </div>
+    <div class="form-group">
+        <input type="submit" value="Loan Book" class="btn btn-danger" />
+        <a class="btn btn-dark" asp-page="/Copies/GetCopies" asp-route-title="@Model.Book.Title" asp-route-id="@Model.Book.Isbn">Cancel</a>
+    </div>
+</form>
