@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LibraryManagementSystem",
+    "\\LibraryManagementSystem\\LibraryManagementSystem",
+    "\\LibraryManagementSystem\\LibraryManagementSystem\\Models",
+    "\\LibraryManagementSystem\\LibraryManagementSystem\\Pages"
   ],
-  "SelectedNode": "\\LibraryManagementSystem.sln",
+  "SelectedNode": "\\LibraryManagementSystem\\LibraryManagementSystem.sln",
   "PreviewInSolutionExplorer": false
 }
