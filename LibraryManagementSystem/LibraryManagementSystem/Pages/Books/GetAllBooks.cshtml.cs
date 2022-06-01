@@ -20,11 +20,14 @@ namespace LibraryManagementSystem.Pages.Books
         }
         public IActionResult OnGet()
         {
-            Books = bookService.DisplayAllBooks();
+            
 
             if (!string.IsNullOrEmpty(FilterCriteria))
             {
                 Books = bookService.FilterBook(FilterCriteria);
+            }else
+            {
+                Books = bookService.DisplayAllBooks();
             }
             return Page();
         }
